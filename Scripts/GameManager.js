@@ -132,6 +132,7 @@ class GameManager extends Component {
 
     new GameDataDisplay(new Object("GameDataDisplay", Vector2.Zero, 0, Vector2.One));
     new BorderDrawer("BorderDrawer", 0);
+    new PowerupManager("PowerupManager");
 
     let pos = getRandomWorldPos();
     let o = new Object("AmmoCrate", pos, random.Random(0,Math.PI),new Vector2(0.5, 0.5));

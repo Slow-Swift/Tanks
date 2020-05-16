@@ -22,7 +22,7 @@ class PowerupManager extends Component {
   CreateNewPowerup() {
     if(gameManager.twoPlayer)
       return;
-      
+
     let spawnDst = random.Random(300, 2000);
     let spawnAngle = random.Random(0, Math.PI * 2);
     let spawnPosition = Vector2.VectorFromAngleAndMagnitude(spawnAngle, spawnDst).
