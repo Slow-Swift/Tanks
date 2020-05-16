@@ -5,12 +5,12 @@ class PauseMenu extends Component {
 
   constructor(...args) {
     super(...args);
-    new Text(this.object, "Paused", "#eeddaa", 30, new Vector2(330, 70), true, 0, 0, 0, -0.81);
+    //new Text(this.object, "Paused", "#eeddaa", 30, new Vector2(330, 70), true, 0, 0, 0, -0.81);
 
-    this.resumeBtn = new CameraButton(new Object("ResumeBtn", new Vector2(330, 120), 0,
+    this.resumeBtn = new CameraButton(new Object("ResumeBtn", new Vector2(330, 100), 0,
       new Vector2(0.35, 0.35)), 400, 200, "Images/ResumeBtn.png",
       this.OnResumePressed.bind(this), -0.81);
-    this.quitBtn = new CameraButton(new Object("QuitBtn", new Vector2(330, 200), 0,
+    this.quitBtn = new CameraButton(new Object("QuitBtn", new Vector2(330, 180), 0,
       new Vector2(0.35, 0.35)), 400, 200, "Images/QuitBtn.png",
       this.OnQuitPressed.bind(this), -0.81);
     this.OnDisplayResized(new Vector2(660, 360));
@@ -25,6 +25,11 @@ class PauseMenu extends Component {
   }
 
   Update() {
+    if(!gameManager.playingGame) {
+      this.Hide();
+      return;
+    }
+
     camera.MoveCtxBack();
 
     this.DrawBackground(canvas.height * 0.7, canvas.height * 0.6, 10, this.borderColor);
