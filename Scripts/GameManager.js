@@ -20,6 +20,8 @@ class GameManager extends Component {
   Update() {
     if(this.playingGame)
       this.UpdateGameState();
+
+    this.volumeQuietDst = 300 * camera.scale.x;
   }
 
   UpdateGameState() {

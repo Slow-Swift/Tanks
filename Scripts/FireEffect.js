@@ -30,10 +30,15 @@ class FireEffect extends PowerupEffect {
   }
 
   UpdateEffect() {
+    this.transform.position = this.tank.transform.position;
+    this.audio.location = this.transform.position;
+
     if(this.tank.active)
       this.tank.DealDamage(this.effectiveness * Time.deltaTime);
-    else
+    else {
       this.object.Destroy();
+      this.EndEffect();
+    }
 
     if(!this.tank.fireActive) {
       this.EndEffect();
