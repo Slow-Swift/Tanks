@@ -71,7 +71,7 @@ class GameManager extends Component {
     if(this.gameOver)
       return;
 
-    if(this.remainingTanks <= 0) {
+    if(this.remainingTanks <= 0 && player.active) {
       this.gameOver = true;
       this.playerWins = true;
       this.gameOverTime = Time.time;
