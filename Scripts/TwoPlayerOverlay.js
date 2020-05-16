@@ -146,12 +146,12 @@ class TwoPlayerOverlay extends Component {
     this.p2SIndex = player2.tank.selectedSIndex;
 
     let boxSize = canvas.height * 0.1;
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "blue";
     ctx.fillRect(canvas.width * 0.018 - boxSize * 0.05, canvas.height * 0.08 -
       boxSize * 0.05 + boxSize * 1.1 * this.p1PIndex, boxSize * 1.1, boxSize * 1.1);
     ctx.fillRect(canvas.width * 0.928 - boxSize * 0.05, canvas.height * 0.08 -
       boxSize * 0.05 + boxSize * 1.1 * this.p2PIndex, boxSize * 1.1, boxSize * 1.1);
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "red";
     ctx.fillRect(canvas.width * 0.018 - boxSize * 0.05, canvas.height * 0.08 -
       boxSize * 0.05 + boxSize * 1.1 * this.p1SIndex, boxSize * 1.1, boxSize * 1.1);
     ctx.fillRect(canvas.width * 0.928 - boxSize * 0.05, canvas.height * 0.08 -
