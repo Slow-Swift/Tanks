@@ -7,10 +7,13 @@ class GameManager extends Component {
   dispersionPower = 2;
   volumeQuietDst = 300;
 
+  savedDataPrefix = location.href + ": ";
+
   _playTime = null
 
   constructor(...args) {
     super(...args)
+    window.gameManager = this;
     this.Load();
   }
 
@@ -60,7 +63,8 @@ class GameManager extends Component {
     otd.push(...ObjectManagement.FindObjectsByName("Barrel", false));
     otd.push(...ObjectManagement.FindObjectsOfType(TwoPlayerManager, false));
     otd.push(...ObjectManagement.FindObjectsOfType(TwoPlayerOverlay, false));
-
+    otd.push(...ObjectManagement.FindObjectsOfType(TwoPlayerInput, false));
+    otd.push(...ObjectManagement.FindObjectsOfType(PlayerInput, false));
 
     for (var o of otd) {
       o.object.Destroy();
@@ -197,7 +201,7 @@ class GameManager extends Component {
   Load() {
     playerData.Load();
 
-    let json = localStorage.getItem("DifficultySettings");
+    let json = localStorage.getItem(this.savedDataPrefix + "DifficultySettings");
     let obj = JSON.parse(json) || {};
     this.numEnemyTanks = obj.numEnemyTanks || 4;
     this.enemyTankSpeed = obj.enemyTankSpeed || 150;
@@ -233,7 +237,7 @@ class GameManager extends Component {
       volume: gm.volume
     }
     let json = JSON.stringify(obj);
-    localStorage.setItem("DifficultySettings", json);
+    localStorage.setItem(this.savedDataPrefix + "DifficultySettings", json);
   }
 
   get playTime() {

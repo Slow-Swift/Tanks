@@ -28,8 +28,8 @@ class ConfirmResetMenu extends Component {
   }
 
   OnConfirmPressed() {
-    localStorage.removeItem("Purchases");
-    localStorage.removeItem("DifficultySettings");
+    localStorage.removeItem(gameManager.savedDataPrefix + "Purchases");
+    localStorage.removeItem(gameManager.savedDataPrefix + "DifficultySettings");
     window.location.reload();
   }
 

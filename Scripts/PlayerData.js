@@ -183,11 +183,11 @@ class PlayerData {
     }
 
     let json = JSON.stringify(purchases);
-    localStorage.setItem("Purchases", json);
+    localStorage.setItem(gameManager.savedDataPrefix + "Purchases", json);
   }
 
   Load() {
-    let json = localStorage.getItem("Purchases");
+    let json = localStorage.getItem(gameManager.savedDataPrefix + "Purchases");
     let purchases;
     if(json) {
       purchases = JSON.parse(json);
